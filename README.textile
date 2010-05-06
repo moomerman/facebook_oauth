@@ -8,6 +8,8 @@ h2. Using the gem
 
 To make authorized requests with the client library you'll need to "create a Facebook Application":http://www.facebook.com/developers/createapp.php.
 
+See http://facebook-oauth.heroku.com/ for a full integration example.
+
 h2. Authorized request example
 
 To use the full power of the Facebook API you need to authorize your application and a valid Facebook user via OAuth.
