@@ -59,9 +59,11 @@ h2. Supported objects
     * Page
     * Photo
     * Post
-    * Status message
+    * Status
     * User
     * Video
 
-You can access any object listed above in the same way via the API.  For example, event attendees would be <code>client.event('event_id').attendees
-</code>.  Check out the "Facebook API Reference":http://developers.facebook.com/docs/reference/api/ to see what methods are available.
+You can access any object listed above in the same way via the API.  For example, event attendees would be <code>client.event('event_id').attending
+</code>. 
+
+Check out the "Facebook API Reference":http://developers.facebook.com/docs/reference/api/ to see what methods are available.
