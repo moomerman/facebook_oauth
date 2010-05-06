@@ -35,9 +35,10 @@ In your application your user would be redirected to Facebook to authorize the a
 client.me.info # returns your user information
 </code></pre>
 
-Now if you keep hold of the access_token.token (usually in the database) for this user you won't need to re-authorize them next time.  When you create an instance of the client you can just pass in the access token and secret that you have stored.
+Now if you keep hold of the access_token.token (usually in the database) for this user you won't need to re-authorize them next time.  When you create an instance of the client you can just pass in the access token that you have stored.
 
 <pre><code>access_token = @user.access_token # assuming @user
+
 client = FacebookOAuth::Client.new(
     :application_id => 'YOUR_APPLICATION_ID',
     :application_secret => 'YOUR_APP_SECRET_KEY',
