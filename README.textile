@@ -1,0 +1,47 @@
+h1. Facebook OAuth Graph API client library for Ruby
+
+h2. Install the gem
+
+sudo gem install facebook_oauth
+
+h2. Using the gem
+
+To make authorized requests with the client library you'll need to "create a Facebook Application":http://www.facebook.com/developers/createapp.php.
+
+h2. Authorized request example
+
+To use the full power of the Facebook API you need to authorize your application and a valid Facebook user via OAuth.
+An example showing how to update the status of an authorized user is below.
+
+Firstly we need to create an instance of the client with your application client credentials you have been given by Facebook
+when you set up your application.
+
+<pre><code>client = FacebookOAuth::Client.new(
+    :application_id => 'YOUR_APPLICATION_ID',
+    :application_secret => 'YOUR_APP_SECRET_KEY',
+    :callback => 'http://example.com/facebook/callback'
+)
+
+client.authorize_url
+=> "https://graph.facebook.com/oauth/authorize?scope=SCOPE&client_id=ID&type=web_server&redirect_uri=CALLBACK"
+</code></pre>
+
+In your application your user would be redirected to Facebook to authorize the application at this point. The code continues below assuming the user has authorized your application, facebook will return to your callback URL with a <code>code</code> parameter.
+
+<pre><code>access_token = client.authorize(code)
+
+client.me.info # returns your user information
+</code></pre>
+
+Now if you keep hold of the access_token.token (usually in the database) for this user you won't need to re-authorize them next time.  When you create an instance of the client you can just pass in the access token and secret that you have stored.
+
+<pre><code>access_token = @user.access_token # assuming @user
+client = FacebookOAuth::Client.new(
+    :application_id => 'YOUR_APPLICATION_ID',
+    :application_secret => 'YOUR_APP_SECRET_KEY',
+    :callback => 'http://example.com/facebook/callback',
+    :token => access_token
+)
+
+client.me.info # returns your user information
+</code></pre>
