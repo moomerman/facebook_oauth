@@ -68,13 +68,13 @@ h2. Supported objects
 
 You can access any object listed above in the same way via the API.  For example:
 
-<code>client.event('event_id').attending      # event attendees
+<pre><code>client.event('event_id').attending      # event attendees
     
 client.group('group_id').members      # group members
 
 client.me.home      # the authorized users news feed
 
 client.photo('photo_id').comments      # comments on a photo
-</code> 
+</code></pre> 
 
 Check out the "Facebook API Reference":http://developers.facebook.com/docs/reference/api/ to see what methods are available.
