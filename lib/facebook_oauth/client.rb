@@ -23,7 +23,7 @@ module FacebookOAuth
         options[:code],
         :redirect_uri => options[:callback] || @callback
       )
-      @token ||= @access_token.token
+      @token = @access_token.token
       @access_token
     end
     
@@ -37,7 +37,7 @@ module FacebookOAuth
       end
 
       def access_token
-        @access_token ||= OAuth2::AccessToken.new(consumer, @token)
+        OAuth2::AccessToken.new(consumer, @token)
       end
       
       def _get(url)
