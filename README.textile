@@ -28,7 +28,7 @@ client.authorize_url
 
 In your application your user would be redirected to Facebook to authorize the application at this point. The code continues below assuming the user has authorized your application, facebook will return to your callback URL with a <code>code</code> parameter.
 
-<pre><code>access_token = client.authorize(code)
+<pre><code>access_token = client.authorize(:code => code)
 
 client.me.info # returns your user information
 </code></pre>
@@ -45,3 +45,23 @@ client = FacebookOAuth::Client.new(
 
 client.me.info # returns your user information
 </code></pre>
+
+
+h2. Supported objects
+
+    * Me (a special object that represents the current authorized user)
+
+    * Album
+    * Event
+    * Group
+    * Link
+    * Note
+    * Page
+    * Photo
+    * Post
+    * Status message
+    * User
+    * Video
+
+You can access any object listed above in the same way via the API.  For example, event attendees would be <code>client.event('event_id').attendees
+</code>.  Check out the "Facebook API Reference":http://developers.facebook.com/docs/reference/api/ to see what methods are available.
