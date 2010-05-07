@@ -11,7 +11,7 @@ module FacebookOAuth
     end
   
     def authorize_url(options = {})
-      options[:scope] ||= 'email,offline_access'
+      options[:scope] ||= 'offline_access,publish_stream'
       consumer.web_server.authorize_url(
         :redirect_uri => options[:callback] || @callback,
         :scope => options[:scope]
@@ -45,8 +45,8 @@ module FacebookOAuth
         JSON.parse(oauth_response)
       end
 
-      def _post(url, body = '', headers = {})
-        oauth_response = access_token.post(url, body, headers)
+      def _post(url, params={}, headers={})
+        oauth_response = access_token.post(url, params, headers)
         JSON.parse(oauth_response)
       end
 

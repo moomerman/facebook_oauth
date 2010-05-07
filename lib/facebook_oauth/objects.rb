@@ -50,7 +50,7 @@ module FacebookOAuth
     end
     
   end
-  
+    
   class FacebookObject
     def initialize(oid, client)
       @oid = oid
@@ -61,9 +61,12 @@ module FacebookOAuth
       @client.send(:_get, @oid)
     end
     
-    def method_missing(a)
-      puts a.inspect
-      @client.send(:_get, "#{@oid}/#{a.to_s}")
+    def method_missing(method, *args)
+      if args.first and args.first == :create
+        @client.send(:_post, "/#{@oid}/#{method.to_s}", args.last)
+      else
+        @client.send(:_get, "/#{@oid}/#{method.to_s}")
+      end
     end
     
   end
