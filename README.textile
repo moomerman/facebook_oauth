@@ -80,10 +80,10 @@ In order to publish content to a user you need to have the correct permissions. 
 
 <pre><code>client.authorize_url(:scope => 'publish_stream')</code></pre>
 
-The scope is a comma-separated list of permissions.  See the "Facebook Permissions page":http://developers.facebook.com/docs/authentication/permissions for more information.
+The scope is a comma-separated list of permissions.  See the "Facebook Permissions Documentation":http://developers.facebook.com/docs/authentication/permissions for more information.
 
 With the correct permissions you can now post to a users wall like this:
 
-<pre><code>client.me.feed(:create, :message => 'Testing writing to your wall...')</pre></code>\
+<pre><code>client.me.feed(:create, :message => 'Testing writing to your wall...')</pre></code>
 
 For a full list of supported publishing objects and parameters check out the "Facebook API Documentation":http://developers.facebook.com/docs/api under "Publishing to Facebook."
