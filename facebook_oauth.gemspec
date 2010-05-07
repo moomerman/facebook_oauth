@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{facebook_oauth}
-  s.version = "0.1.1"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Richard Taylor"]
-  s.date = %q{2010-05-06}
-  s.description = %q{facebook_oauth is a Ruby client library for facebook using the oauth method.}
+  s.date = %q{2010-05-07}
+  s.description = %q{facebook_oauth is a Ruby client library for the Facebook OAuth Graph API}
   s.email = %q{moomerman@gmail.com}
   s.files = ["LICENSE", "README.textile","lib/facebook_oauth.rb"] + Dir.glob('lib/facebook_oauth/*.rb')
   s.has_rdoc = false
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{facebook_oauth}
   s.rubygems_version = %q{1.3.1}
-  s.summary = %q{facebook_oauth is a Ruby client library for facebook using the oauth method.}
+  s.summary = %q{facebook_oauth is a Ruby client library for the Facebook OAuth Graph API}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

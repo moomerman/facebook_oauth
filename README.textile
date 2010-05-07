@@ -48,7 +48,6 @@ client = FacebookOAuth::Client.new(
 client.me.info # returns your user information
 </code></pre>
 
-
 h2. Supported objects
 
     * Me (a special object that represents the current authorized user)
@@ -74,3 +73,15 @@ client.photo('photo_id').comments  # comments on a photo
 </code></pre> 
 
 Check out the "Facebook API Reference":http://developers.facebook.com/docs/reference/api/ to see what methods are available.
+
+h2. Publishing options
+
+In order to publish content to a user you need to have the correct permissions.  For example, to publish to a users wall you need the <code>publish_stream</code> permission.  You specify the permissions you want to have for the authorizing user when you generate the authorize url like this:
+
+<pre><code>client.authorize_url(:scope => 'publish_stream')</code></pre>
+
+The scope is a comma-separated list of permissions.  See the "Facebook Permissions page":http://developers.facebook.com/docs/authentication/permissions for more information.
+
+With the correct permissions you can now post to a users wall like this:
+
+<pre><code>client.me.feed(:create, :message => 'Testing writing to your wall...')</pre></code>
