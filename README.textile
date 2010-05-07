@@ -84,6 +84,15 @@ The scope is a comma-separated list of permissions.  See the "Facebook Permissio
 
 With the correct permissions you can now post to a users wall like this:
 
-<pre><code>client.me.feed(:create, :message => 'Testing writing to your wall...')</pre></code>
+<pre><code>client.me.feed(:create, :message => 'Testing writing to your wall...')</code></pre>
+
+Other examples include:
+
+<pre><code>client.event('event_id').attending(:create) # the user is attending the event
+client.post('post_id').comments(:create, :message => 'my comment') # comment on a post
+client.user('user_id').albums(:create, :name => 'my album', :message => 'cool pictures') # create an album
+</code></pre>
 
 For a full list of supported publishing objects and parameters check out the "Facebook API Documentation":http://developers.facebook.com/docs/api under "Publishing to Facebook."
+
+NOTE:  I still have to implement the upload a photo method.  Also if you can think of a better syntax for the create methods let me know!
