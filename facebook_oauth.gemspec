@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<oauth2>, [">= 0.0.8"])
-      s.add_runtime_dependency(%q<json>, [">= 1.1.9", "<= 1.2.4"])
+      s.add_runtime_dependency(%q<json>, [">= 1.1.9"])
       s.add_runtime_dependency(%q<mime-types>, [">= 1.16"])
       %w(shoulda mocha).each do |dep|
         s.add_development_dependency dep
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<oauth2>, [">= 0.0.8"])
-    s.add_dependency(%q<json>, [">= 1.1.9", "<= 1.2.4"])
+    s.add_dependency(%q<json>, [">= 1.1.9"])
     s.add_dependency(%q<mime-types>, [">= 1.16"])
   end
 end
