@@ -62,8 +62,11 @@ module FacebookOAuth
     end
     
     def method_missing(method, *args)
-      if args.first and args.first == :create
-        @client.send(:_post, "/#{@oid}/#{method.to_s}", args.last)
+      first = args.shift
+      params = args.first || {}
+      
+      if first and first == :create
+        @client.send(:_post, "/#{@oid}/#{method.to_s}", params)
       else
         @client.send(:_get, "/#{@oid}/#{method.to_s}")
       end

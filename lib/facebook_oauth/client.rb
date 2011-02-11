@@ -42,17 +42,18 @@ module FacebookOAuth
       
       def _get(url)
         oauth_response = access_token.get(url)
-        JSON.parse(oauth_response)
+        JSON.parse(oauth_response) rescue oauth_response
       end
 
       def _post(url, params={}, headers={})
         oauth_response = access_token.post(url, params, headers)
-        JSON.parse(oauth_response)
+        puts oauth_response.inspect
+        JSON.parse(oauth_response) rescue oauth_response
       end
 
       def _delete(url)
         oauth_response = access_token.delete(url)
-        JSON.parse(oauth_response)
+        JSON.parse(oauth_response) rescue oauth_response
       end
   end
 end
