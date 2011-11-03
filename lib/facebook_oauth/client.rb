@@ -52,7 +52,7 @@ module FacebookOAuth
       end
 
       def _post(url, params={}, headers={})
-        oauth_response = access_token.post(url, params, headers).parsed
+        oauth_response = access_token.post(url, :params => params, :headers => headers).parsed
         puts oauth_response.inspect
         JSON.parse(oauth_response) rescue oauth_response
       end
