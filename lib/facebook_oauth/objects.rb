@@ -68,7 +68,7 @@ module FacebookOAuth
       if first and first == :create
         @client.send(:_post, "/#{@oid}/#{method.to_s}", params)
       else
-        @client.send(:_get, "/#{@oid}/#{method.to_s}")
+        @client.send(:_get, "/#{@oid}/#{method.to_s}", first)
       end
     end
     
