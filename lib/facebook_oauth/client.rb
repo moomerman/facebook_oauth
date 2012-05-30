@@ -46,8 +46,8 @@ module FacebookOAuth
         @access_token
       end
       
-      def _get(url)
-        oauth_response = access_token.get(url).parsed
+      def _get(url, params={})
+        oauth_response = access_token.get(url, :params => params).parsed
         JSON.parse(oauth_response) rescue oauth_response
       end
 
