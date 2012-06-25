@@ -15,7 +15,8 @@ module FacebookOAuth
       client.auth_code.authorize_url(
         :client_id => @application_id,
         :redirect_uri => options[:callback] || @callback,
-        :scope => options[:scope]
+        :scope => options[:scope],
+	:display => options[:display] || "page"
       )
     end
     
